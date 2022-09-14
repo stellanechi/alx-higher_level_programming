@@ -1,8 +1,9 @@
 #!/usr/bin/python3
 """
-Module 4-square
+Module 5-square
 Defines class Square with private size and public area
 Can access and update size
+Can print to stdout the square using #'s
 """
 
 
@@ -16,6 +17,7 @@ class Square:
         size(self)
         size(self, value)
         area(self)
+        print(self)
     """
 
     def __init__(self, size=0):
@@ -39,7 +41,7 @@ class Square:
         """
         Setter
         Args:
-            value: sets size to value, if int and >= 0
+            value: sets size to value if int and >= 0
         """
         if type(value) is not int:
             raise TypeError("size must be an integer")
@@ -55,3 +57,9 @@ class Square:
             area
         """
         return (self.__size)**2
+
+    def my_print(self):
+        """
+        Prints square with #'s
+        """
+        print("\n".join(["#" * self.__size for rows in range(self.__size)]))
