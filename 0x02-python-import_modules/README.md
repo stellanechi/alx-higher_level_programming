@@ -1,6 +1,7 @@
 Python - import & modules
 
-Learning Objectives in this topic 
+Learning Objectives in this topic
+
 Why Python programming is awesome
 How to import functions from another file
 How to use imported functions
