@@ -1,27 +1,26 @@
 #!/usr/bin/python3
-if __name__ == "__main__":
-    from sys import argv
-    from calculator_1 import add, sub, mul, div
-
-    if (len(argv) - 1) != 3:
+def simple_cal(sys, cal):
+    count = len(sys.argv)
+    if (count != 4):
         print("Usage: ./100-my_calculator.py <a> <operator> <b>")
-        exit(1)
-
-    a = int(argv[1])
-    b = int(argv[3])
-
-    if argv[2] == "+":
-        print("{} + {} = {}".format(a, b, add(a, b)))
-        exit(0)
-    elif argv[2] == "-":
-        print("{} - {} = {}".format(a, b, sub(a, b)))
-        exit(0)
-    elif argv[2] == "*":
-        print("{} * {} = {}".format(a, b, mul(a, b)))
-        exit(0)
-    elif argv[2] == "/":
-        print("{} / {} = {}".format(a, b, div(a, b)))
-        exit(0)
+        sys.exit(1)
+    a = int(sys.argv[1])
+    b = int(sys.argv[3])
+    operator = sys.argv[2]
+    if (operator == '+'):
+        print("{0:d} + {1:d} = {2:d}".format(a, b, cal.add(a, b)))
+    elif (operator == '-'):
+        print("{0:d} - {1:d} = {2:d}".format(a, b, cal.sub(a, b)))
+    elif (operator == '*'):
+        print("{0:d} * {1:d} = {2:d}".format(a, b, cal.mul(a, b)))
+    elif (operator == '/'):
+        print("{0:d} / {1:d} = {2:d}".format(a, b, cal.div(a, b)))
     else:
         print("Unknown operator. Available operators: +, -, * and /")
-        exit(1)
+        sys.exit(1)
+
+
+if __name__ == "__main__":
+    import sys
+    import calculator_1 as cal
+    simple_cal(sys, cal)
